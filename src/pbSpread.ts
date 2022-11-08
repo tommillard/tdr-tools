@@ -126,6 +126,7 @@ export class PBSpread extends LitElement {
             header: true,
             complete: (results: any) => {
                 this.processData(results.data);
+                console.log(this.athletes);
             },
         });
     }
@@ -219,7 +220,7 @@ export class PBSpread extends LitElement {
 
         for (let session of sessions) {
             session.results.sort((a, b) => {
-                return (a.watts || 0) - (b.watts || 0);
+                return (b.watts || 0) - (a.watts || 0);
             });
 
             session.results.forEach((result, index) => {
